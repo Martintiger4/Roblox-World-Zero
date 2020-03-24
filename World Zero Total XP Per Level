@@ -1,0 +1,506 @@
+
+/****************************************
+
+  Website: Roblox
+  Game: World // Zero
+  Title: Roblox World Zero XP Stats
+
+  Description: This program displays:
+
+  1.
+  The amount of xp required to advance
+  to the next Level
+
+  2.Total XP per any given Level, XP Per 
+  Enemy, Total Amount of Enemies Per Level,
+  Total Xp including Bosses.
+  
+*****************************************/
+																										
+
+// Text Colors
+
+/* BLACK 0			 * DARKGREY 8
+ * BLUE 1			 * LIGHTBLUE 9
+ * GREEN 2			 * LIGHTGREEN 10
+ * CYAN 3			 * LIGHTCYAN 11
+ * RED 4			 * LIGHTRED 12
+ * MAGENTA 5		 * LIGHTMAGENTA 13
+ * BROWN 6			 * YELLOW 14
+ * LIGHTGREY 7		 * WHITE 15
+ * BLINK 128
+ */
+
+
+// Main is at line 476.
+
+
+ /**************************************
+   Title: World_Zero_LvL_PerCharacter
+
+   Return Type: Void
+
+   Description: The amount of xp required 
+   to advance to the next Level.
+
+ **************************************/
+
+
+#include <stdio.h>
+#include <windows.h>
+
+void  World_Zero_LvL_PerCharacter() //Program Displaying XP per Character LVL
+{
+	int level, i, xp, perLVL, lvl, _1_Return; //Declaring Variables
+	xp = 70;
+	perLVL = 60;
+
+	for (i = 2; i >= 0 && i < 101; i++) // Loop & Calculations
+	{
+		level = i; // Current lvl
+		xp += (perLVL + 60); // Max xp at any given Lvl
+		perLVL += 60;        // How much xp is added per Lvl
+
+		// Printing LvL
+		printf(" LVL %d - Max xp: %d to get to next lvl, and %d xp added.\n\n", i, xp, perLVL);
+	}
+
+	printf("\n\n Press 0 to return to Menu. ");
+	scanf_s("%d", &_1_Return);
+	if (_1_Return == 0)
+	{
+		int main(void);
+	}
+}
+
+
+/**************************************
+  Title: World_Zero_WorldXP
+
+  Return Type: Void
+
+  Description: Displays Total XP
+  per any given Level, XP Per Enemy,
+  Total Amount of Enemies Per Level,
+  Total Xp including Bosses.
+
+**************************************/
+void World_Zero_WorldXP() // Program Displaying Xp per given World and Level
+{
+	int lvl[60], World[5] = { -1 }, xp[60] = { 0 }, _2_Return = 0;
+
+	while (1)
+	{
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13); // Setting color to Light Magenta (13)
+		printf("\n\n\n | Roblox, World Zero XP Stats | \n\n");
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); // Setting color to White (15)
+		printf(" * Select World [1,2,3,4] (99 to Return to Menu): ");
+		scanf_s("%d", &World[0]);
+
+		switch (World[0])
+		{
+		case 99: (_2_Return = World[0]); break;
+		case 1: (World[1] = World[0]); break;
+		case 2: (World[2] = World[0]); break;
+		case 3: (World[3] = World[0]); break;
+		case 4: (World[4] = World[0]); break;
+		}
+
+		if (World[0] == World[1]) // World 1
+		{
+			while (1)
+			{
+				printf(" *Choose a Level in \"World 1\" [1, 3, 4, 7, 9, 12 ( '0' to Choose World) ]: ");
+				scanf_s("%d", &lvl[0]);
+
+				switch (lvl[0])
+				{
+				case 1: (lvl[1] = lvl[0]); break;
+				case 3: (lvl[3] = lvl[0]); break;
+				case 4: (lvl[4] = lvl[0]); break;
+				case 7: (lvl[7] = lvl[0]); break;
+				case 9: (lvl[9] = lvl[0]); break;
+				case 12: (lvl[12] = lvl[0]); break;
+				}
+
+				if (lvl[0] == lvl[1])  // Level 1
+				{
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10); // Setting color to Light Green (10)
+					printf("\n  lvl 1 - Crabby Crusade ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);// Setting color to White (15)
+					printf("\n Amount of enemies: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("24");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Xp per enemy:");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf(" 7");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Total Xp: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("168xp (With Boss = 195xp) \n\n");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
+				if (lvl[0] == lvl[3])  // Level 3
+				{
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10); // Setting color to Light Green (10)
+					printf("\n  lvl 3 - Dire Problem, ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);// Setting color to White (15)
+					printf("\n Amount of enemies: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("23");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Xp per enemy: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("32");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Total Xp: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("736xp (With Boss = 896xp) \n\n");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
+				if (lvl[0] == lvl[4])  // Level 4
+				{
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10); // Setting color to Light Green (10)
+					printf("\n  lvl 4 - Scarecrow Defence ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);// Setting color to White (15)
+					printf("\n Amount of enemies: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("29");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Xp per enemy: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("61");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Total Xp: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("1769xp (With Boss = 1937xp \n\n");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
+				if (lvl[0] == lvl[7])  // Level 7
+				{
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10); // Setting color to Light Green (10)
+					printf("\n  lvl 7 - KingSlayer");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);// Setting color to White (15)
+					printf("\n Amount of enemies: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("87");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Xp per enemy: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("66");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Total Xp: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("5742xp (With Boss = same \n\n");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
+				if (lvl[0] == lvl[9])  // Level 9
+				{
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10); // Setting color to Light Green (10)
+					printf("\n  lvl 9 - Night of The Dead");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);// Setting color to White (15)
+					printf("\n Amount of enemies: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("53");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Xp per enemy: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("111");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Total Xp: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("6770xp \n\n");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
+				if (lvl[0] == lvl[12])  // Level 12
+				{
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10); // Setting color to Light Green (10)
+					printf("\n  lvl 12 - Gravetower Dungeon");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);// Setting color to White (15)
+					printf("\n Amount of enemies: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("99");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Xp per enemy: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("121");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Total Xp: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("11,979xp \n\n");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
+				if (lvl[0] == 0)
+				{
+
+					break;
+				}
+
+			}
+
+		}
+
+		if (World[0] == World[2]) // World 2
+		{
+
+			while (1)
+			{
+				printf(" *Choose a Level in \"World 2\" (15, 18, 22, 26, (0 to Choose World) ): ");
+				scanf_s("%d", &lvl[0]);
+
+				switch (lvl[0])
+				{
+				case 15: (lvl[15] = lvl[0]); break;
+				case 18: (lvl[18] = lvl[0]); break;
+				case 22: (lvl[22] = lvl[0]); break;
+				case 26: (lvl[26] = lvl[0]); break;
+
+				}
+				if (lvl[0] == lvl[15])  // Level 15
+				{
+					int W2_LvL15_BossXP = (0);
+					int W2_LvL15_EnemyXP = (132);
+					int W2_LvL15_Number_Of_Enemies = (48);
+					int W2_LvL15_Total_EnemyXP = (W2_LvL15_EnemyXP * W2_LvL15_Number_Of_Enemies);
+					int W2_LvL15_Total_XP = (W2_LvL15_Total_EnemyXP + W2_LvL15_BossXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); // Setting color to Yellow (14)
+					printf("\n  lvl 15 - Temple of Ruin ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);// Setting color to White (15)
+					printf("\n Amount of enemies: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W2_LvL15_Number_Of_Enemies);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Xp per enemy: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W2_LvL15_EnemyXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Total Xp: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%dxp + Boss = %dxp \n\n", W2_LvL15_Total_EnemyXP, W2_LvL15_Total_XP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
+				if (lvl[0] == lvl[18])  // Level 18
+				{
+					int W2_LvL18_BossXP = (0);
+					int W2_LvL18_EnemyXP = (138);
+					int W2_LvL18_Number_Of_Enemies = (67);
+					int W2_LvL18_Total_EnemyXP = (W2_LvL18_EnemyXP * W2_LvL18_Number_Of_Enemies);
+					int W2_LvL18_Total_XP = (W2_LvL18_Total_EnemyXP + W2_LvL18_BossXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); // Setting color to Yellow (14)
+					printf("\n  lvl 18 - Mama Trauma ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);// Setting color to White (15)
+					printf("\n Amount of enemies: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W2_LvL18_Number_Of_Enemies);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Xp per enemy: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W2_LvL18_EnemyXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Total Xp: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%dxp + Boss = %dxp \n\n", W2_LvL18_Total_EnemyXP, W2_LvL18_Total_XP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
+				if (lvl[0] == lvl[22])  // Level 22
+				{
+					int W2_LvL22_BossXP = (713);
+					int W2_LvL22_EnemyXP = (143);
+					int W2_LvL22_Number_Of_Enemies = (45);
+					int W2_LvL22_Total_EnemyXP = (W2_LvL22_EnemyXP * W2_LvL22_Number_Of_Enemies);
+					int W2_LvL22_Total_XP = (W2_LvL22_Total_EnemyXP + W2_LvL22_BossXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); // Setting color to Yellow (14)
+					printf("\n  lvl 22 - Volcano's Shadow ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);// Setting color to White (15)
+					printf("\n Amount of enemies: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W2_LvL22_Number_Of_Enemies);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Xp per enemy: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W2_LvL22_EnemyXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Total Xp: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%dxp + Boss = %dxp \n\n", W2_LvL22_Total_EnemyXP, W2_LvL22_Total_XP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
+				if (lvl[0] == lvl[26])  // Level 26
+				{
+					int W2_LvL26_BossXP = (218);
+					int W2_LvL26_EnemyXP = (126);
+					int W2_LvL26_Number_Of_Enemies = (62);
+					int W2_LvL26_Total_EnemyXP = (W2_LvL26_EnemyXP * W2_LvL26_Number_Of_Enemies);
+					int W2_LvL26_Total_XP = (W2_LvL26_Total_EnemyXP + W2_LvL26_BossXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); // Setting color to Yellow (14)
+					printf("\n  lvl 26 - Volcano Dungeon ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);// Setting color to White (15)
+					printf("\n Amount of enemies: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W2_LvL26_Number_Of_Enemies);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Xp per enemy: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W2_LvL26_EnemyXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Total Xp: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%dxp + Boss = %dxp \n\n", W2_LvL26_Total_EnemyXP, W2_LvL26_Total_XP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
+
+				if (lvl[0] == 0)
+				{
+					break;
+				}
+
+			}
+
+		}
+
+		if (World[0] == World[3]) // World 3
+		{
+			while (1)
+			{
+
+				printf(" *Choose a Level in \"World 3\" (30, 35, 40, (0 to Choose World) ): ");
+				scanf_s("%d", &lvl[0]);
+
+				switch (lvl[0])
+				{
+				case 30: (lvl[30] = lvl[0]); break;
+				case 35: (lvl[35] = lvl[0]); break;
+				case 40: (lvl[40] = lvl[0]); break;
+				}
+
+				if (lvl[0] == lvl[30])  // Level 30
+				{
+					int W3_LvL30_BossXP = (0);
+					int W3_LvL30_EnemyXP = (147);
+					int W3_LvL30_Number_Of_Enemies = (40);
+					int W3_LvL30_Total_EnemyXP = (W3_LvL30_EnemyXP * W3_LvL30_Number_Of_Enemies);
+					int W3_LvL30_Total_XP = (W3_LvL30_Total_EnemyXP + W3_LvL30_BossXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); // Setting color to Yellow (14)
+					printf("\n  lvl 30 - Mountain Pass ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);// Setting color to White (15)
+					printf("\n Amount of enemies: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W3_LvL30_Number_Of_Enemies);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Xp per enemy: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W3_LvL30_EnemyXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Total Xp: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%dxp + Boss = %dxp \n\n", W3_LvL30_Total_EnemyXP, W3_LvL30_Total_XP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
+				if (lvl[0] == lvl[35])  // Level 35
+				{
+					int W3_LvL35_BossXP = (0);
+					int W3_LvL35_EnemyXP = (158);
+					int W3_LvL35_Number_Of_Enemies = (31);
+					int W3_LvL35_Total_EnemyXP = (W3_LvL35_EnemyXP * W3_LvL35_Number_Of_Enemies);
+					int W3_LvL35_Total_XP = (W3_LvL35_Total_EnemyXP + W3_LvL35_BossXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); // Setting color to Yellow (14)
+					printf("\n  lvl 35 - Winter Cavern ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);// Setting color to White (15)
+					printf("\n Amount of enemies: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W3_LvL35_Number_Of_Enemies);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Xp per enemy: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W3_LvL35_EnemyXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Total Xp: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%dxp + Boss = %dxp \n\n", W3_LvL35_Total_EnemyXP, W3_LvL35_Total_XP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
+				if (lvl[0] == lvl[40]) // Level 40
+				{
+					int W3_LvL40_BossXP = (225);
+					int W3_LvL40_EnemyXP = (150);
+					int W3_LvL40_Number_Of_Enemies = (74);
+					int W3_LvL40_Total_EnemyXP = (W3_LvL40_EnemyXP * W3_LvL40_Number_Of_Enemies);
+					int W3_LvL40_Total_XP = (W3_LvL40_Total_EnemyXP + W3_LvL40_BossXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); // Setting color to Yellow (14)
+					printf("\n  lvl 40 - Winter Dungeon");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);// Setting color to White (15)
+					printf("\n Amount of enemies: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W3_LvL40_Number_Of_Enemies);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Xp per enemy: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W3_LvL40_EnemyXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Total Xp: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%dxp + Boss = %dxp \n\n", W3_LvL40_Total_EnemyXP, W3_LvL40_Total_XP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
+
+				if (lvl[0] == 0)
+				{
+					break;
+				}
+
+			}
+
+		}
+
+		if (World[0] == World[4]) // World 4
+		{
+
+			while (1)
+			{
+
+				printf(" *Choose a Level in \"World 4\" (45, 50, 55, (0 to Choose World) ): ");
+				scanf_s("%d", &lvl[0]);
+
+				switch (lvl[0])
+				{
+				case 45: (lvl[45] = lvl[0]); break;
+				case 50: (lvl[50] = lvl[0]); break;
+				case 55: (lvl[55] = lvl[0]); break;
+				}
+
+				if (lvl[0] == lvl[45]) // Level 45
+				{
+					int W4_LvL45_BossXP = (226);
+					int W4_LvL45_EnemyXP = (151);
+					int W4_LvL45_Number_Of_Enemies = (77);
+					int W4_LvL45_Total_EnemyXP = (W4_LvL45_EnemyXP * W4_LvL45_Number_Of_Enemies);
+					int W4_LvL45_Total_XP = (W4_LvL45_Total_EnemyXP + W4_LvL45_BossXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); // Setting color to Yellow (14)
+					printf("\n  lvl 45 ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);// Setting color to White (15)
+					printf("\n Amount of enemies: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W4_LvL45_Number_Of_Enemies);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Xp per enemy: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W4_LvL45_EnemyXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Total Xp: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%dxp + Boss = %dxp \n\n", W4_LvL45_Total_EnemyXP, W4_LvL45_Total_XP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
+				if (lvl[0] == lvl[50]) // Level 50
+				{
+					int W4_LvL50_BossXP = (301);
+					int W4_LvL50_EnemyXP = (151);
+					int W4_LvL50_Number_Of_Enemies = (48);
+					int W4_LvL50_Total_EnemyXP = (W4_LvL50_EnemyXP * W4_LvL50_Number_Of_Enemies);
+					int W4_LvL50_Total_XP = (W4_LvL50_Total_EnemyXP + W4_LvL50_BossXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); // Setting color to Yellow (14)
+					printf("\n  lvl 50 ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);// Setting color to White (15)
+					printf("\n Amount of enemies: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W4_LvL50_Number_Of_Enemies);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Xp per enemy: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W4_LvL50_EnemyXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Total Xp: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%dxp + Boss = %dxp \n\n", W4_LvL50_Total_EnemyXP, W4_LvL50_Total_XP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
+				if (lvl[0] == lvl[55]) // Level 55
+				{
+					int W4_LvL55_BossXP = (200);
+					int W4_LvL55_EnemyXP = (151);
+					int W4_LvL55_Number_Of_Enemies = (44);
+					int W4_LvL55_Total_EnemyXP = (W4_LvL55_EnemyXP * W4_LvL55_Number_Of_Enemies);
+					int W4_LvL55_Total_XP = (W4_LvL55_Total_EnemyXP + W4_LvL55_BossXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); // Setting color to Yellow (14)
+					printf("\n  lvl 55 ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);// Setting color to White (15)
+					printf("\n Amount of enemies: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W4_LvL55_Number_Of_Enemies);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Xp per enemy: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%d", W4_LvL55_EnemyXP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); printf(", Total Xp: ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); printf("%dxp + Boss = %dxp \n\n", W4_LvL55_Total_EnemyXP, W4_LvL55_Total_XP);
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
+
+				if (lvl[0] == 0)
+				{
+					break;
+				}
+			}
+	
+		}
+		if ( World[0] ==_2_Return)
+		{
+			break;
+		}
+
+	}
+}
+
+
+
+int main(void) //Main
+{
+	while (1)
+	{
+		int Menu_Number[3];
+		printf("\n Choose an Option: \n");
+		printf(" 1. Character Xp \n 2. World / Level XP \n Option: ");
+		scanf_s("%d", &Menu_Number[0]);
+
+		switch (Menu_Number[0])
+		{
+		case 1: (Menu_Number[1] = Menu_Number[0]); break;
+		case 2: (Menu_Number[2] = Menu_Number[0]); break;
+		}
+
+		if (Menu_Number[1] == Menu_Number[0]) // Program 1
+		{
+			World_Zero_LvL_PerCharacter();
+		}
+
+		else if (Menu_Number[2] = Menu_Number[0]) // Program 2
+		{
+			 World_Zero_WorldXP();
+		}
+
+
+	}
+}
